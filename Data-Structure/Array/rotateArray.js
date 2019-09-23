@@ -1,6 +1,5 @@
 // Rotate Array by first D elements
-// Input arr= [3,4,6,7,8,10,11];
-// D = 4;
+// Input arr= [3,4,6,7,8,10,11], D = 4;
 // Output Arr= [8,10,11,3,4,6,7]
 // Time Complexity O(n), no extra space
 
@@ -25,4 +24,3 @@ let arr = [3, 4, 6, 7, 8, 10, 11];
 let d = 4;
 rotate(arr, arr.length, 4);
 console.log(arr.toString());
-
