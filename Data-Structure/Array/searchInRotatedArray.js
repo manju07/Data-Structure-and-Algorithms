@@ -1,3 +1,4 @@
+'use strict';
 function findPivotPoint(arr) {
     let low = 0,
         high = arr.length - 1;
