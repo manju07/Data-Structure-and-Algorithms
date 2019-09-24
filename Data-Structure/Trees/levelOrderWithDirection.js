@@ -10,15 +10,15 @@ function levelOrderTraversalWithDirection(root) {
     let stack = [];
     stack.push(root);
     let queue = [];
-    let count = 1;
+    let leftToRight = true;
     while (stack.length != 0) {
         let levelElements = '';
         while (stack.length != 0) {
             let temp = stack.pop();
-            if (count == 1) {
+            if (leftToRight) {
                 if (temp.leftNode) queue.push(temp.leftNode);
                 if (temp.rightNode) queue.push(temp.rightNode);
-            } else if (count == 2) {
+            } else {
                 if (temp.rightNode) queue.push(temp.rightNode);
                 if (temp.leftNode) queue.push(temp.leftNode);
             }
@@ -28,7 +28,7 @@ function levelOrderTraversalWithDirection(root) {
         levelElements = '';
         while (queue.length != 0) {
             let temp = queue.shift();
-            if (count == 1) {
+            if (leftToRight) {
                 if (temp.leftNode) stack.push(temp.leftNode);
                 if (temp.rightNode) stack.push(temp.rightNode);
             } else {
@@ -38,8 +38,8 @@ function levelOrderTraversalWithDirection(root) {
             levelElements = levelElements + temp.data + ' ';
         }
         console.log(levelElements);
-        if (count == 2) count = 0;
-        count++;
+        if (leftToRight) leftToRight = false;
+        else leftToRight = true;
     }
 }
 //level - 1
