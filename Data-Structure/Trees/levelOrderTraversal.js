@@ -9,11 +9,21 @@ function levelOrderTraversal(root) {
     if (root == null) return;
     let queue = [];
     queue.push(root);
+    queue.push(null);
+    let levelElements = '';
     while (queue.length != 0) {
         let temp = queue.shift();
-        console.log(temp.data)
-        if (temp.leftNode) queue.push(temp.leftNode)
-        if (temp.rightNode) queue.push(temp.rightNode)
+        if (temp == null) {
+            console.log(levelElements);
+            levelElements = '';
+            if (queue.length > 0) {
+                queue.push(null);
+            }
+        } else {
+            levelElements = levelElements + temp.data + ' ';
+            if (temp.leftNode) queue.push(temp.leftNode)
+            if (temp.rightNode) queue.push(temp.rightNode)
+        }
     }
 }
 
