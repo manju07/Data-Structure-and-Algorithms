@@ -63,4 +63,11 @@ tree.rightNode.leftNode.rightNode = new Node(13);
 
 tree.rightNode.rightNode.leftNode = new Node(14);
 tree.rightNode.rightNode.rightNode = new Node(15);
+//             1
+//         /       \
+//       2           3
+//     /   \       /   \
+//    4     5     6      7
+//   / \   / \   / \    / \
+//  8  9  10 11 12 13 14   15
 reverseLevelOrderTraversal(tree);

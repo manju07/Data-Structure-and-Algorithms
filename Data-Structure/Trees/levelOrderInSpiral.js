@@ -33,14 +33,14 @@ let tree = new Node(1);
 tree.leftNode = new Node(2);
 tree.rightNode = new Node(3);
 
-// level -3
+// level - 3
 tree.leftNode.leftNode = new Node(4);
 tree.leftNode.rightNode = new Node(5);
 
 tree.rightNode.leftNode = new Node(6);
 tree.rightNode.rightNode = new Node(7);
 
-// level -4
+// level - 4
 tree.leftNode.leftNode.leftNode = new Node(8);
 tree.leftNode.leftNode.rightNode = new Node(9);
 
@@ -52,5 +52,12 @@ tree.rightNode.leftNode.rightNode = new Node(13);
 
 tree.rightNode.rightNode.leftNode = new Node(14);
 tree.rightNode.rightNode.rightNode = new Node(15);
+//             1
+//         /       \
+//       2           3
+//     /   \       /   \
+//    4     5     6      7
+//   / \   / \   / \    / \
+//  8  9  10 11 12 13 14   15
 levelOrderTraversalLineByLine(tree);
 
