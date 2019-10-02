@@ -6,7 +6,7 @@ class Node {
     }
 }
 
-function differenceSumOfOddAndEven(root) {
+function differenceSumOfOddAndEvenSolution1(root) {
     let oddLevelSum = 0,
         evenLevelSum = 0;
     let queue = [root, null];
@@ -25,6 +25,11 @@ function differenceSumOfOddAndEven(root) {
         }
     }
     return oddLevelSum - evenLevelSum;
+}
+function differenceSumOfOddAndEvenSolution2(root) {
+    if (root == null) return 0;
+    return root.data - differenceSumOfOddAndEvenSolution1(root.leftNode)
+        - differenceSumOfOddAndEvenSolution1(root.rightNode);
 }
 
 //level - 1
@@ -60,4 +65,5 @@ tree.rightNode.rightNode.rightNode = new Node(15);
 //    4     5     6      7
 //   / \   / \   / \    / \
 //  8  9  10 11 12 13 14   15
-console.log('Difference sum between odd and even level order ', differenceSumOfOddAndEven(tree));
+console.log('Difference sum between odd and even level order ', differenceSumOfOddAndEvenSolution1(tree));
+console.log('Difference sum between odd and even level order ', differenceSumOfOddAndEvenSolution2(tree));
