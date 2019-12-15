@@ -7,39 +7,25 @@ class Node {
 }
 function levelOrderTraversalWithDirection(root) {
     if (root == null) return;
-    let stack = [];
-    stack.push(root);
-    let queue = [];
-    let leftToRight = true;
-    while (stack.length != 0) {
+    let stack1 = [root];
+    let stack2 = [];
+    while (stack1.length != 0 || stack2.length != 0) {
         let levelElements = '';
-        while (stack.length != 0) {
-            let temp = stack.pop();
-            if (leftToRight) {
-                if (temp.leftNode) queue.push(temp.leftNode);
-                if (temp.rightNode) queue.push(temp.rightNode);
-            } else {
-                if (temp.rightNode) queue.push(temp.rightNode);
-                if (temp.leftNode) queue.push(temp.leftNode);
-            }
+        while (stack1.length != 0) {
+            let temp = stack1.pop();
+            if (temp.rightNode) stack2.push(temp.rightNode);
+            if (temp.leftNode) stack2.push(temp.leftNode);
             levelElements = levelElements + temp.data + ' ';
         }
         console.log(levelElements);
         levelElements = '';
-        while (queue.length != 0) {
-            let temp = queue.shift();
-            if (leftToRight) {
-                if (temp.leftNode) stack.push(temp.leftNode);
-                if (temp.rightNode) stack.push(temp.rightNode);
-            } else {
-                if (temp.rightNode) stack.push(temp.rightNode);
-                if (temp.leftNode) stack.push(temp.leftNode);
-            }
+        while (stack2.length != 0) {
+            let temp = stack2.pop();
+            if (temp.leftNode) stack1.push(temp.leftNode);
+            if (temp.rightNode) stack1.push(temp.rightNode);
             levelElements = levelElements + temp.data + ' ';
         }
         console.log(levelElements);
-        if (leftToRight) leftToRight = false;
-        else leftToRight = true;
     }
 }
 //level - 1
